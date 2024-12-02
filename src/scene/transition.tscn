@@ -1,0 +1,135 @@
+[gd_scene load_steps=7 format=3 uid="uid://0k3sj2sun3o6"]
+
+[ext_resource type="Texture2D" uid="uid://bget78jomoof0" path="res://src/Asset/cloud 1.png" id="1_84xbg"]
+[ext_resource type="Script" path="res://src/script/transition.gd" id="1_vdupm"]
+
+[sub_resource type="Animation" id="Animation_ep5d6"]
+resource_name = "MOVECENTER"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 785), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_y8ihc"]
+resource_name = "MOVEUP"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -714)]
+}
+
+[sub_resource type="Animation" id="Animation_cv5ky"]
+resource_name = "RESET"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 785)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hfbv3"]
+_data = {
+"MOVECENTER": SubResource("Animation_ep5d6"),
+"MOVEUP": SubResource("Animation_y8ihc"),
+"RESET": SubResource("Animation_cv5ky")
+}
+
+[node name="Transition" type="CanvasLayer"]
+script = ExtResource("1_vdupm")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(0, 785)
+
+[node name="Cloud1" type="Sprite2D" parent="Node2D"]
+position = Vector2(312, 25)
+scale = Vector2(0.179563, 0.179563)
+texture = ExtResource("1_84xbg")
+
+[node name="Cloud2" type="Sprite2D" parent="Node2D"]
+position = Vector2(864, 556)
+scale = Vector2(0.179563, 0.179563)
+texture = ExtResource("1_84xbg")
+
+[node name="Cloud3" type="Sprite2D" parent="Node2D"]
+position = Vector2(659, 369)
+scale = Vector2(0.282339, 0.282339)
+texture = ExtResource("1_84xbg")
+
+[node name="Cloud6" type="Sprite2D" parent="Node2D"]
+position = Vector2(459, 527)
+scale = Vector2(0.100413, 0.100413)
+texture = ExtResource("1_84xbg")
+
+[node name="Cloud7" type="Sprite2D" parent="Node2D"]
+position = Vector2(228, 555)
+scale = Vector2(0.183107, 0.183107)
+texture = ExtResource("1_84xbg")
+
+[node name="Cloud5" type="Sprite2D" parent="Node2D"]
+position = Vector2(721, 154)
+scale = Vector2(0.179563, 0.179563)
+texture = ExtResource("1_84xbg")
+
+[node name="Cloud13" type="Sprite2D" parent="Node2D"]
+position = Vector2(1018, 249)
+scale = Vector2(0.179563, 0.179563)
+texture = ExtResource("1_84xbg")
+
+[node name="Cloud8" type="Sprite2D" parent="Node2D"]
+position = Vector2(389, 210)
+scale = Vector2(0.179563, 0.179563)
+texture = ExtResource("1_84xbg")
+
+[node name="Cloud11" type="Sprite2D" parent="Node2D"]
+position = Vector2(990, 18)
+scale = Vector2(0.179563, 0.179563)
+texture = ExtResource("1_84xbg")
+
+[node name="Cloud12" type="Sprite2D" parent="Node2D"]
+position = Vector2(1122, 360)
+scale = Vector2(0.179563, 0.179563)
+texture = ExtResource("1_84xbg")
+
+[node name="Cloud9" type="Sprite2D" parent="Node2D"]
+position = Vector2(124, 365)
+scale = Vector2(0.179563, 0.179563)
+texture = ExtResource("1_84xbg")
+
+[node name="Cloud10" type="Sprite2D" parent="Node2D"]
+position = Vector2(-74, 178)
+scale = Vector2(0.179563, 0.179563)
+texture = ExtResource("1_84xbg")
+
+[node name="Cloud4" type="Sprite2D" parent="Node2D"]
+position = Vector2(667, 400)
+scale = Vector2(0.100413, 0.100413)
+texture = ExtResource("1_84xbg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hfbv3")
+}

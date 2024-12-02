@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkgj5r8s8l14"]
+
+[ext_resource type="Script" path="res://src/script/arena.gd" id="1_mquqk"]
+[ext_resource type="PackedScene" uid="uid://c1tiomo77youg" path="res://src/scene/player.tscn" id="1_uudx0"]
+[ext_resource type="PackedScene" uid="uid://cragooa5utrwf" path="res://src/scene/parallax_background.tscn" id="2_7oi30"]
+[ext_resource type="PackedScene" uid="uid://c6pbljte87dp6" path="res://src/scene/heart.tscn" id="4_moa8c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0p2x"]
+size = Vector2(1152, 648)
+
+[node name="Arena" type="Node2D"]
+script = ExtResource("1_mquqk")
+
+[node name="TimerSpawner" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_7oi30")]
+
+[node name="Player" parent="." instance=ExtResource("1_uudx0")]
+position = Vector2(120, 320)
+
+[node name="Heart" parent="." instance=ExtResource("4_moa8c")]
+unique_name_in_owner = true
+
+[node name="Area2D" type="Area2D" parent="." groups=["bullet"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(576, 324)
+shape = SubResource("RectangleShape2D_r0p2x")
+
+[connection signal="timeout" from="TimerSpawner" to="." method="spawnEnemy"]
+[connection signal="PLAYER_DEATH" from="Heart" to="Player" method="death"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

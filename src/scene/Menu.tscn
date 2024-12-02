@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://cd02fkcnamlxn"]
+
+[ext_resource type="Script" path="res://src/script/menu.gd" id="1_50hij"]
+[ext_resource type="Texture2D" uid="uid://bbrb7apda24l8" path="res://src/Asset/plane.png" id="1_lgi63"]
+[ext_resource type="PackedScene" uid="uid://cragooa5utrwf" path="res://src/scene/parallax_background.tscn" id="2_efddn"]
+[ext_resource type="FontFile" uid="uid://cw8ifttdj44eb" path="res://src/Asset/Audiowide-Regular.ttf" id="4_1gvn1"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_50hij")
+
+[node name="START" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 133.0
+offset_top = -252.0
+offset_right = 533.0
+offset_bottom = -152.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "START GAME"
+
+[node name="EXIT" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 133.0
+offset_top = -142.0
+offset_right = 533.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "EXIT"
+
+[node name="Plane" type="Sprite2D" parent="."]
+position = Vector2(216, 324)
+rotation = 1.5708
+scale = Vector2(1.17647, 1.17647)
+texture = ExtResource("1_lgi63")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_efddn")]
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 24.0
+offset_right = 1106.0
+offset_bottom = 283.0
+theme_override_fonts/font = ExtResource("4_1gvn1")
+theme_override_font_sizes/font_size = 100
+text = "PLANE
+MAYHEM"
+horizontal_alignment = 2
+
+[connection signal="button_down" from="START" to="." method="_on_start_button_down"]
+[connection signal="button_down" from="EXIT" to="." method="_on_exit_button_down"]

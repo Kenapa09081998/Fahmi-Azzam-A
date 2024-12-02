@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://t6roppb5n02t"]
+
+[ext_resource type="AudioStream" uid="uid://dlexcjut2x7bk" path="res://src/Asset/Ludum Dare 38 09.ogg" id="1_561dg"]
+
+[node name="Node" type="Node"]
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_561dg")
+autoplay = true
